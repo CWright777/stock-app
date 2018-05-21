@@ -10,6 +10,8 @@ target 'stockApp' do
   target 'stockApp-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'react-native-config', :path => '../node_modules/react-native-config'
+
   end
 
   target 'stockAppTests' do
