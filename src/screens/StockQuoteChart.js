@@ -3,10 +3,12 @@ import {
   StyleSheet,
   View,
   Dimensions,
+  Image,
 } from 'react-native'
 import Chart from '../components/Chart'
 import StockInput from '../components/StockInput'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import BullImage from "../assets/images/bull.png"
 
 const dimensions = Dimensions.get('window')
 
@@ -24,6 +26,10 @@ export default class StockQuoteChart extends Component {
         enabled
         scrollEnabled={false}
       >
+        <Image
+          source={BullImage}
+          style={styles.bullImage}
+        />
         <View style={styles.chartContainer}>
           <Chart {...this.props}/>
         </View>
@@ -40,13 +46,19 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 60
   },
   chartContainer: {
-    height: dimensions.height * .8
+    height: dimensions.height * .65
   },
   inputContainer: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center"
+  },
+  bullImage: {
+    height: dimensions.height * .1,
+    resizeMode: "contain",
+    marginBottom: 10
   }
 })

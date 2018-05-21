@@ -94,12 +94,17 @@ const chartHeader = (symbol, price, time) => {
       {symbol}
     </Text>
     <Text style={styles.priceText}>{price || "..."}</Text>
-    <Text style={styles.timeText}>{time}</Text>
+    <Text
+      style={styles.timeText}
+      numberOfLines={1}
+    >
+      {time}
+    </Text>
     <View style={styles.stockInfoBottomBorder}/>
   </View>
 }
 
-const lineWidth = dimensions.width * .7
+const lineWidth = dimensions.width * .75
 const lineColor = "#758ECD"
 const styles = StyleSheet.create({
   container: {
@@ -129,8 +134,8 @@ const styles = StyleSheet.create({
   stockInfoContainer: {
     borderTopColor: lineColor,
     borderTopWidth: 1,
+    marginBottom: 3,
     width: lineWidth,
-    marginTop: 60,
     height: 80,
     alignSelf: "center",
     alignItems: "center",
