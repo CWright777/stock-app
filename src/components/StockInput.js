@@ -17,12 +17,12 @@ export default class StockInput extends Component {
 
   submitSymbol() {
     if(this.state.symbol.trim() !== "") {
-    const symbol = this.state.symbol
-    const getStockInfo = _=>this.props.getStockInfo(symbol, "60min")
-      .then(_=>{
-        this.setState({symbol: ""})
-      })
-    setTimeout(getStockInfo, 500)
+      const symbol = this.state.symbol
+      const getStockInfo = _=>this.props.getStockInfo(symbol, "60min")
+        .then(_=>{
+          this.setState({symbol: ""})
+        })
+      setTimeout(getStockInfo, 500)
     }
   }
 
