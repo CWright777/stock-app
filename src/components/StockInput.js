@@ -27,9 +27,7 @@ export default class StockInput extends Component {
   }
 
   onChangeText(symbol) {
-    this.setState({
-      symbol: symbol.toUpperCase()
-    })
+    this.setState({ symbol })
   }
 
   render() {
@@ -42,6 +40,9 @@ export default class StockInput extends Component {
       onSubmitEditing={this.submitSymbol.bind(this)}
       onChangeText={this.onChangeText.bind(this)}
       value={this.state.symbol}
+      autoCapitalize={"characters"}
+      autoCorrect={false}
+      returnKeyType={"go"}
     />
   }
 }

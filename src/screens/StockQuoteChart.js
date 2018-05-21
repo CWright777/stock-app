@@ -25,6 +25,7 @@ export default class StockQuoteChart extends Component {
         behavior="position"
         enabled
         scrollEnabled={false}
+        extraScrollHeight={13}
       >
         <Image
           source={BullImage}
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   bullImage: {
-    height: dimensions.height * .1,
+    height: dimensions.height * .07,
     resizeMode: "contain",
     marginBottom: 10
   }
