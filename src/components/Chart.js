@@ -20,10 +20,6 @@ export default class Chart extends React.Component {
     super();
 
     this.state = {
-      selectedEntry: {
-        marker: "",
-        y: ""
-      },
       data: {},
       xAxis: {
         textColor: processColor('transparent'),
@@ -53,26 +49,23 @@ export default class Chart extends React.Component {
 
   handleSelect(event) {
     let entry = event.nativeEvent
-    if (entry == null) {
-      this.setState({...this.state, selectedEntry: null})
-    } else {
-      if(entry.data && entry.data.marker) {
-        this.setState({...this.state, selectedEntry: entry.data})
-      }
+    if(entry.data && entry.data.marker) {
+      this.props.updateSelectedEntry(entry.data)
     }
   }
 
   render() {
-    const selectedEntry = this.state.selectedEntry
+    const props = this.props
+    const selectedEntry = props.stock.selectedEntry
     const marker = selectedEntry.marker
-    const symbol = this.props.stock.stockSymbol
+    const symbol = props.stock.stockSymbol
 
     let price = selectedEntry.y
     if(price) {
       price = `$${price}`
     }
 
-    if(this.props.stock.loading) {
+    if(props.stock.loading) {
       return <View
         style={styles.activityContainer}
       >

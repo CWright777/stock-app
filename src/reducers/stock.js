@@ -1,7 +1,8 @@
 import createReducer from '../utils/create-reducer'
 import {
   STOCK_DATA_RECEIVED,
-  STOCK_DATA_REQUESTED
+  STOCK_DATA_REQUESTED,
+  UPDATE_SELECTED_ENTRY
 } from "../actions/stock"
 
 import * as d3Shape from 'd3-shape'
@@ -15,7 +16,11 @@ import {
 const initialState = {
   loading: true,
   stockData: null,
-  stockSymbol: null
+  stockSymbol: null,
+  selectedEntry: {
+    marker: "",
+    y: ""
+  },
 }
 
 export default createReducer(initialState, {
@@ -31,6 +36,7 @@ export default createReducer(initialState, {
     const stockData = processTimeSeriesData(timeSeriesData).reverse()
 
     return {
+      ...state,
       loading: false,
       stockSymbol: symbol,
       stockData: {
@@ -50,14 +56,19 @@ export default createReducer(initialState, {
             fillAlpha: 90
           }
         }]
-      }
+      },
     }
-  }
+  },
+  [UPDATE_SELECTED_ENTRY](state, { payload }) {
+    return {
+      ...state,
+      selectedEntry: payload
+    }
+  },
 })
 
 function processTimeSeriesData(timeSeriesData) {
   return Object.keys(timeSeriesData).map(timeStr=>{
-    console.log(timeSeriesData[timeStr])
     return {
       y: Number(timeSeriesData[timeStr]["4. close"]),
       marker: moment(timeStr).format("dddd, MMMM Do YYYY, h:mm:ss a")
