@@ -133,17 +133,17 @@ const styles = StyleSheet.create({
   },
   stockInfoContainer: {
     borderTopColor: lineColor,
-    borderTopWidth: 1,
-    marginBottom: 3,
+    borderTopWidth: .5,
+    marginBottom: 18,
     width: lineWidth,
-    height: 80,
+    height: 85,
     alignSelf: "center",
     alignItems: "center",
   },
   stockInfoBottomBorder: {
-    marginTop: 4,
+    marginTop: 6,
     width: lineWidth,
     borderBottomColor: lineColor,
-    borderBottomWidth: 1,
+    borderBottomWidth: .5,
   }
 });
