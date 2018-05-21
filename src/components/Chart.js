@@ -122,7 +122,6 @@ const styles = StyleSheet.create({
   symbol: {
     fontSize: 20,
     marginTop: 5,
-    marginBottom: 3,
     color: "#37393A"
   },
   timeText: {
