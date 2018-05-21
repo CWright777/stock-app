@@ -14,7 +14,7 @@ const dimensions = Dimensions.get('window')
 
 export default class StockQuoteChart extends Component {
   componentWillMount() {
-    this.props.getStockInfo("SPY", "60min")
+    this.props.getStockInfo("GBTC", "60min")
   }
 
   render() {
