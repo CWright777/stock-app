@@ -35,7 +35,7 @@ export default class StockInput extends Component {
       style={styles.input}
       label={'Stock Symbol'}
       borderColor={'#CBD2FA'}
-      labelStyle={{ color: '#77B6EA' }}
+      labelStyle={{ color: '#37393A' }}
       inputStyle={{ color: '#37393A' }}
       onSubmitEditing={this.submitSymbol.bind(this)}
       onChangeText={this.onChangeText.bind(this)}

@@ -52,8 +52,8 @@ export default createReducer(initialState, {
             drawHighlightIndicators: false,
             color: processColor("#758ECD"),
             drawFilled: true,
-            fillColor: processColor("#697dfb"),
-            fillAlpha: 90
+            fillColor: processColor("#758ECD"),
+            fillAlpha: 100
           }
         }]
       },
