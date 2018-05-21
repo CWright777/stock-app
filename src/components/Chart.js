@@ -13,40 +13,32 @@ import {LineChart} from 'react-native-charts-wrapper';
 
 const dimensions = Dimensions.get('window')
 
+const xAxisConfig = {
+  textColor: processColor('transparent'),
+  textSize: 16,
+  gridColor: processColor('transparent'),
+  gridLineWidth: 1,
+  axisLineColor: processColor('darkgray'),
+  axisLineWidth: 1.5,
+  gridDashedLine: {
+    lineLength: 10,
+    spaceLength: 5
+  },
+  avoidFirstLastClipping: true,
+  valueFormatter: [],
+  position: 'BOTTOM',
+}
+
+const yAxisConfig = {
+  left: {
+    drawGridLines: false
+  },
+  right: {
+    enabled: false
+  }
+}
 
 export default class Chart extends React.Component {
-
-  constructor() {
-    super();
-
-    this.state = {
-      data: {},
-      xAxis: {
-        textColor: processColor('transparent'),
-        textSize: 16,
-        gridColor: processColor('transparent'),
-        gridLineWidth: 1,
-        axisLineColor: processColor('darkgray'),
-        axisLineWidth: 1.5,
-        gridDashedLine: {
-          lineLength: 10,
-          spaceLength: 5
-        },
-        avoidFirstLastClipping: true,
-        valueFormatter: [],
-        position: 'BOTTOM',
-      },
-      yAxis: {
-        left: {
-          drawGridLines: false
-        },
-        right: {
-          enabled: false
-        }
-      }
-    };
-  }
-
   handleSelect(event) {
     let entry = event.nativeEvent
     if(entry.data && entry.data.marker) {
@@ -79,10 +71,10 @@ export default class Chart extends React.Component {
           <View style={styles.container}>
             <LineChart
               style={styles.chart}
-              data={this.props.stock.stockData}
+              data={props.stock.stockData}
               chartDescription={{text: ''}}
-              xAxis={this.state.xAxis}
-              yAxis={this.state.yAxis}
+              xAxis={xAxisConfig}
+              yAxis={yAxisConfig}
               legend={{ enabled: false }}
               doubleTapToZoomEnabled={false}
               onSelect={this.handleSelect.bind(this)}
